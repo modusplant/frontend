@@ -1,15 +1,18 @@
 // eslint.config.mjs
 import js from "@eslint/js";
+import plugin from "@typescript-eslint/eslint-plugin";
+import parser from "@typescript-eslint/parser";
+import importPlugin from "eslint-plugin-import";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import jsxA11y from "eslint-plugin-jsx-a11y";
-import importPlugin from "eslint-plugin-import";
-import parser from "@typescript-eslint/parser";
-import plugin from "@typescript-eslint/eslint-plugin";
 import storybook from "eslint-plugin-storybook";
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
+  {
+    ignores: ["cypress/**", "jest.config.ts", "jest.setup.ts", "cypress.config.ts"],
+  },
   js.configs.recommended,
   {
     plugins: {
@@ -67,8 +70,6 @@ export default [
         },
       ],
       "react/require-default-props": "off",
-
-      // ✅ Storybook 관련 룰 추천 적용 (원하면 더 추가 가능)
       ...storybook.configs.recommended.rules,
     },
   },
