@@ -11,7 +11,13 @@ import storybook from "eslint-plugin-storybook";
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
   {
-    ignores: ["cypress/**", "jest.config.ts", "jest.setup.ts", "cypress.config.ts"],
+    ignores: [
+      "cypress/**",
+      "jest.config.ts",
+      "jest.setup.ts",
+      "cypress.config.ts",
+      "postcss.config.js",
+    ],
   },
   js.configs.recommended,
   {
