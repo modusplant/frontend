@@ -20,7 +20,13 @@ const config: Config = {
         paragraph_large: ["18px", { lineHeight: "29px", letterSpacing: "0px" }],
         paragraph_medium: ["16px", { lineHeight: "27px", letterSpacing: "0.5px" }],
         paragraph_small: ["14px", { lineHeight: "22px", letterSpacing: "0.5px" }],
+        label_button_large: ["18px", { lineHeight: "30px", letterSpacing: "0px" }],
+        label_button_default: ["16px", { lineHeight: "28px", letterSpacing: "0.5px" }],
+        label_button_small: ["14px", { lineHeight: "27px", letterSpacing: "0.5px" }],
+        label_field: ["14px", { lineHeight: "22px", letterSpacing: "0.5px" }],
         highlight: ["16px", { lineHeight: "27px", letterSpacing: "0.5px" }],
+        link: ["16px", { lineHeight: "27px", letterSpacing: "0.5px" }],
+        hint: ["14px", { lineHeight: "22px", letterSpacing: "0.5px" }],
       },
       fontWeight: {
         h1: "700",
@@ -28,7 +34,12 @@ const config: Config = {
         h3: "600",
         h4: "500",
         paragraph: "400",
+        label_bold: "600",
+        label_medium: "500",
+        label_light: "400",
         highlight: "700",
+        link: "500",
+        hint: "400",
       },
       colors: {
         primary: {
@@ -55,7 +66,7 @@ const config: Config = {
         interaction: {
           error: "#dd4258",
           warning: "#efbe17",
-          succes: "#72c83b",
+          success: "#72c83b",
         },
         background: "#f6f6f6",
         neutral: {
