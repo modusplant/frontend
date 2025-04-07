@@ -1,3 +1,4 @@
+import GoogleAnalytics from "@/lib/GoogleAnalytics";
 import ReactQueryProviders from "@/providers/ReactQueryProviders";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -29,8 +30,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+        ) : null}
         <ReactQueryProviders>{children}</ReactQueryProviders>
       </body>
     </html>

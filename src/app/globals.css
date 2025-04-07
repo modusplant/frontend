@@ -2,27 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* === CSS Variables === */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-/* === Global Styles === */
-body {
-  @apply bg-[var(--background)] font-sans text-[var(--foreground)] antialiased;
-}
-
-/* === Text Styles === */
-
-/* Headings */
 .heading1 {
   @apply text-5xl font-bold leading-[58px] tracking-[-2px];
 }
