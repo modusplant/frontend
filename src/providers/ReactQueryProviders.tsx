@@ -1,13 +1,8 @@
-// src/providers/ReactQueryProviders.tsx
 "use client";
 
 import { QueryClient, QueryClientProvider, isServer } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ReactNode } from "react";
-
-// src/providers/ReactQueryProviders.tsx
-
-// src/providers/ReactQueryProviders.tsx
 
 function makeQueryClient() {
   return new QueryClient({
