@@ -67,7 +67,7 @@ export const Input = ({
       )}
       {status === "warning" && (
         <p className="flex items-center gap-1 text-sm text-green-600">
-          {hint && <p className="text-sm text-gray-500">{hint}</p>}
+          {hint && <span className="text-sm text-gray-500">{hint}</span>}
         </p>
       )}
       {status === "valid" && (
