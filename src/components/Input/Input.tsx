@@ -30,7 +30,7 @@ export const Input = ({
   const effectiveType = type === "password" ? (showPassword ? "text" : "password") : type;
 
   return (
-    <div className="flex flex-col gap-[6px]">
+    <div className="relative flex flex-col gap-[6px]">
       <input
         type={effectiveType}
         className={twMerge(clsx(inputVariants({ status }), className))}
