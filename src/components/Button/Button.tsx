@@ -2,7 +2,7 @@ import { buttonStyles } from "@/components/Button/buttonVariants";
 import { cn } from "@/utils/className";
 import { VariantProps } from "class-variance-authority";
 
-interface ButtonProps
+export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonStyles> {
   children?: React.ReactNode;
