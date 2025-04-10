@@ -7,10 +7,13 @@ const config: Config = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
-  globals: {
-    "ts-jest": {
-      tsconfig: "tsconfig.jest.json",
-    },
+  transform: {
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        tsconfig: "tsconfig.jest.json",
+      },
+    ],
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
 };
