@@ -45,14 +45,6 @@ export const Active: Story = {
   },
 };
 
-export const Hover: Story = {
-  render: ControlledTemplate,
-  args: {
-    status: "hover",
-    placeholder: "이메일 입력",
-  },
-};
-
 export const WithError: Story = {
   render: ControlledTemplate,
   args: {
