@@ -28,15 +28,6 @@
       "componentPath": "./src/components/Input/Input.tsx",
       "tags": ["dev", "test", "autodocs"]
     },
-    "components-input--hover": {
-      "type": "story",
-      "id": "components-input--hover",
-      "name": "Hover",
-      "title": "Components/Input",
-      "importPath": "./src/components/Input/Input.stories.tsx",
-      "componentPath": "./src/components/Input/Input.tsx",
-      "tags": ["dev", "test", "autodocs"]
-    },
     "components-input--with-error": {
       "type": "story",
       "id": "components-input--with-error",
