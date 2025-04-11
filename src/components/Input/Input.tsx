@@ -1,9 +1,8 @@
 "use client";
 
-import clsx from "clsx";
+import { cn } from "@/utils/className";
 import Image from "next/image";
 import { useState } from "react";
-import { twMerge } from "tailwind-merge";
 
 import { InputVariantsProps, inputVariants } from "./inputVariants";
 
@@ -33,7 +32,7 @@ export const Input = ({
     <div className="relative mb-[16px] flex flex-col gap-[2px] tablet:mb-[12px] desktop:mb-[10px]">
       <input
         type={effectiveType}
-        className={twMerge(clsx(inputVariants({ status }), className))}
+        className={cn(inputVariants({ status }), className)}
         disabled={status === "disabled"}
         {...props}
       />
