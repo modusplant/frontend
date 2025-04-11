@@ -30,7 +30,7 @@ export const Input = ({
   const effectiveType = type === "password" ? (showPassword ? "text" : "password") : type;
 
   return (
-    <div className="relative flex flex-col gap-[6px]">
+    <div className="relative mb-[16px] flex flex-col gap-[2px] tablet:mb-[12px] desktop:mb-[10px]">
       <input
         type={effectiveType}
         className={twMerge(clsx(inputVariants({ status }), className))}
@@ -61,17 +61,17 @@ export const Input = ({
         </button>
       )}
       {status === "error" && errorMsg && (
-        <p className="flex items-center gap-1 text-sm text-red-500">
+        <p className="flex items-center gap-1 pt-2 text-sm text-red-500">
           <span>⚠</span> {errorMsg}
         </p>
       )}
       {status === "warning" && (
-        <p className="flex items-center gap-1 text-sm text-green-600">
+        <p className="flex items-center gap-1 pt-2 text-sm text-green-600">
           {hint && <span className="text-sm text-gray-500">{hint}</span>}
         </p>
       )}
       {status === "valid" && (
-        <p className="flex items-center gap-1 text-sm text-green-600">
+        <p className="flex items-center gap-1 pt-2 text-sm text-green-600">
           <span>✅</span> Valid
         </p>
       )}
