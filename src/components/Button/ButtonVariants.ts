@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const buttonStyles = cva(
-  "w-full max-h-[40px] rounded-[5px] flex justify-center items-center py-[8px] text-base font-medium transition-color duration-300 ease-in-out",
+  "h-[40px] rounded-[5px] flex justify-center items-center text-base font-medium transition-color px-[8px] duration-300 ease-in-out",
   {
     variants: {
       variant: {
@@ -12,14 +12,15 @@ export const buttonStyles = cva(
         disabled: "bg-neutral-400 text-neutral-700 cursor-not-allowed",
       },
       size: {
-        small: "w-[67px] h-[27px]",
-        medium: "w-[120px] h-[40px]",
-        large: "w-[160px] h-[40px]",
+        default: "w-full",
+        small: "w-[67px]",
+        medium: "w-[120px]",
+        large: "w-[160px]",
       },
     },
     defaultVariants: {
       variant: "fill",
-      size: "medium",
+      size: "default",
     },
   },
 );
