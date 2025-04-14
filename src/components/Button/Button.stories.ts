@@ -24,7 +24,7 @@ export default meta;
 
 export const Default: StoryObj<ButtonProps> = {
   args: {
-    children: "button",
+    children: "default button",
   },
 };
 
