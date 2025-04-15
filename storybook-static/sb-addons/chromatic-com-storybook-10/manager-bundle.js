@@ -38,14 +38,13 @@ try {
         Se = {
           NODE_ENV: "production",
           NODE_PATH: [
-            "/Users/jugangsan/code/modu/frontend/node_modules/.pnpm/storybook@8.6.11_prettier@3.5.3/node_modules/storybook/bin/node_modules",
-            "/Users/jugangsan/code/modu/frontend/node_modules/.pnpm/storybook@8.6.11_prettier@3.5.3/node_modules/storybook/node_modules",
-            "/Users/jugangsan/code/modu/frontend/node_modules/.pnpm/storybook@8.6.11_prettier@3.5.3/node_modules",
-            "/Users/jugangsan/code/modu/frontend/node_modules/.pnpm/node_modules",
+            "C:\\Users\\you04\\OneDrive\\\u8ADB\uBDC0\uAE62 ?\uBDBE\u3203\\frontend\\node_modules\\.pnpm\\storybook@8.6.11_prettier@3.5.3\\node_modules\\storybook\\bin\\node_modules",
+            "C:\\Users\\you04\\OneDrive\\\u8ADB\uBDC0\uAE62 ?\uBDBE\u3203\\frontend\\node_modules\\.pnpm\\storybook@8.6.11_prettier@3.5.3\\node_modules\\storybook\\node_modules",
+            "C:\\Users\\you04\\OneDrive\\\u8ADB\uBDC0\uAE62 ?\uBDBE\u3203\\frontend\\node_modules\\.pnpm\\storybook@8.6.11_prettier@3.5.3\\node_modules",
+            "C:\\Users\\you04\\OneDrive\\\u8ADB\uBDC0\uAE62 ?\uBDBE\u3203\\frontend\\node_modules\\.pnpm\\node_modules",
           ],
           STORYBOOK: "true",
           PUBLIC_URL: ".",
-          NEXT_PUBLIC_GA_ID: "G-Z1XGT28PYS",
         };
       });
     var re = Gr(() => {});
