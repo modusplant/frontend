@@ -10,46 +10,28 @@
       "tags": ["dev", "test", "autodocs"],
       "storiesImports": []
     },
-    "components-input--regular": {
+    "components-input--default": {
       "type": "story",
-      "id": "components-input--regular",
-      "name": "Regular",
+      "id": "components-input--default",
+      "name": "Default",
       "title": "Components/Input",
       "importPath": "./src/components/Input/Input.stories.tsx",
       "componentPath": "./src/components/Input/Input.tsx",
       "tags": ["dev", "test", "autodocs"]
     },
-    "components-input--active": {
+    "components-input--focus": {
       "type": "story",
-      "id": "components-input--active",
-      "name": "Active",
+      "id": "components-input--focus",
+      "name": "Focus",
       "title": "Components/Input",
       "importPath": "./src/components/Input/Input.stories.tsx",
       "componentPath": "./src/components/Input/Input.tsx",
       "tags": ["dev", "test", "autodocs"]
     },
-    "components-input--with-error": {
+    "components-input--error": {
       "type": "story",
-      "id": "components-input--with-error",
-      "name": "With Error",
-      "title": "Components/Input",
-      "importPath": "./src/components/Input/Input.stories.tsx",
-      "componentPath": "./src/components/Input/Input.tsx",
-      "tags": ["dev", "test", "autodocs"]
-    },
-    "components-input--with-hint": {
-      "type": "story",
-      "id": "components-input--with-hint",
-      "name": "With Hint",
-      "title": "Components/Input",
-      "importPath": "./src/components/Input/Input.stories.tsx",
-      "componentPath": "./src/components/Input/Input.tsx",
-      "tags": ["dev", "test", "autodocs"]
-    },
-    "components-input--valid": {
-      "type": "story",
-      "id": "components-input--valid",
-      "name": "Valid",
+      "id": "components-input--error",
+      "name": "Error",
       "title": "Components/Input",
       "importPath": "./src/components/Input/Input.stories.tsx",
       "componentPath": "./src/components/Input/Input.tsx",
@@ -68,6 +50,24 @@
       "type": "story",
       "id": "components-input--password-input",
       "name": "Password Input",
+      "title": "Components/Input",
+      "importPath": "./src/components/Input/Input.stories.tsx",
+      "componentPath": "./src/components/Input/Input.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-input--none-top": {
+      "type": "story",
+      "id": "components-input--none-top",
+      "name": "None Top",
+      "title": "Components/Input",
+      "importPath": "./src/components/Input/Input.stories.tsx",
+      "componentPath": "./src/components/Input/Input.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-input--none-bottom": {
+      "type": "story",
+      "id": "components-input--none-bottom",
+      "name": "None Bottom",
       "title": "Components/Input",
       "importPath": "./src/components/Input/Input.stories.tsx",
       "componentPath": "./src/components/Input/Input.tsx",

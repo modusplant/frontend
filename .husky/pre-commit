@@ -1,3 +1,4 @@
+#!/bin/sh
 echo "lint 검사 및 format 수행 중..."
 
 # Lint 실행

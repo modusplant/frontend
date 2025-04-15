@@ -10,15 +10,17 @@ const meta: Meta<typeof Input> = {
   argTypes: {
     status: {
       control: "select",
-      options: ["regular", "error", "warning", "valid", "disabled"],
+      options: ["regular", "focus", "error", "disabled"], // 기존 inputVariants에 맞춤
+    },
+    layout: {
+      control: "select",
+      options: ["full", "noneTop", "noneBottom"],
     },
     type: {
       control: "select",
       options: ["text", "password", "email"],
     },
     placeholder: { control: "text" },
-    hint: { control: "text" },
-    errorMsg: { control: "text" },
   },
 };
 
@@ -30,44 +32,27 @@ const ControlledTemplate = (args: InputHTMLAttributes<HTMLInputElement>) => {
   return <Input {...args} value={value} onChange={e => setValue(e.target.value)} />;
 };
 
-export const Regular: Story = {
+export const Default: Story = {
   render: ControlledTemplate,
   args: {
-    placeholder: "이메일 입력",
+    status: "regular",
+    placeholder: "기본 입력",
   },
 };
 
-export const Active: Story = {
+export const Focus: Story = {
   render: ControlledTemplate,
   args: {
-    status: "active",
-    placeholder: "이메일 입력",
+    status: "focus",
+    placeholder: "포커스 상태",
   },
 };
 
-export const WithError: Story = {
+export const Error: Story = {
   render: ControlledTemplate,
   args: {
     status: "error",
-    errorMsg: "유효하지 않은 이메일입니다",
-    placeholder: "이메일 입력",
-  },
-};
-
-export const WithHint: Story = {
-  render: ControlledTemplate,
-  args: {
-    status: "warning",
-    hint: "주의가 필요해요",
-    placeholder: "이메일 입력",
-  },
-};
-
-export const Valid: Story = {
-  render: ControlledTemplate,
-  args: {
-    status: "valid",
-    placeholder: "이메일 입력",
+    placeholder: "에러 상태",
   },
 };
 
@@ -75,7 +60,8 @@ export const Disabled: Story = {
   render: ControlledTemplate,
   args: {
     status: "disabled",
-    placeholder: "입력 비활성화됨",
+    placeholder: "비활성화 상태",
+    disabled: true,
   },
 };
 
@@ -84,5 +70,21 @@ export const PasswordInput: Story = {
   args: {
     type: "password",
     placeholder: "비밀번호 입력",
+  },
+};
+
+export const NoneTop: Story = {
+  render: ControlledTemplate,
+  args: {
+    layout: "noneTop",
+    placeholder: "위쪽 라운드 없음",
+  },
+};
+
+export const NoneBottom: Story = {
+  render: ControlledTemplate,
+  args: {
+    layout: "noneBottom",
+    placeholder: "아래쪽 라운드 없음",
   },
 };
