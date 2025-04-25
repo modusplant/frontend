@@ -1,15 +1,36 @@
+"use client";
+
 import Button from "@/components/Button/Button";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
 
-const SigninForm = () => {
+interface FormData {
+  email: string;
+  password: string;
+}
+
+function SigninForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
+
+  const handleSubmitSignin = (values: FormData) => {
+    console.log(values);
+  };
+
   return (
-    <form className="flex w-full flex-col gap-5">
+    <form onSubmit={handleSubmit(handleSubmitSignin)} className="flex w-full flex-col gap-5">
       <div className="mt-10">
         <input
+          {...register("email")}
           className="border-netural-200 paragraph_medium w-full rounded-t-[7px] border px-[18px] py-5 outline-none"
           placeholder="아이디를 입력해주세요."
         />
         <input
+          type="password"
+          {...register("password")}
           className="border-netural-200 paragraph_medium w-full rounded-b-[7px] border-b border-l border-r px-[18px] py-5 outline-none"
           placeholder="비밀번호를 입력해주세요."
         />
@@ -24,15 +45,15 @@ const SigninForm = () => {
       </label>
 
       <div className="flex flex-col gap-[10px]">
-        <Button variant="fill" className="py-4">
+        <Button type="submit" variant="fill" className="py-4">
           <span className="heading4">로그인</span>
         </Button>
-        <Button variant="outline" className="py-4">
+        <Button type="button" variant="outline" className="py-4">
           <span className="heading4">회원가입</span>
         </Button>
       </div>
     </form>
   );
-};
+}
 
 export default SigninForm;
