@@ -46,12 +46,12 @@ function SignupForm() {
 
   return (
     <FormProvider {...methods}>
-      <div className="mx-auto flex h-screen max-w-[535px] flex-col justify-center gap-[60px]">
+      <div className="mx-auto my-20 flex max-w-[535px] flex-col justify-center gap-[60px] px-5">
         <div className="flex items-center justify-between">
           <Image src="/img/modus_plant_logo.png" width={233} height={100} alt="모두의식물 로고" />
           <p className="paragraph_medium text-neutral-600"> 인증이 안되시나요?</p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-10">
           <AuthEmail
             email={email}
             onEmailChange={setEmail}
