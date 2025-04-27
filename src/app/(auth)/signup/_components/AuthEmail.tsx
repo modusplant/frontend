@@ -107,7 +107,6 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
             onChange={handleCodeChange}
             disabled={verified}
           />
-          x
           <button
             type="button"
             className="w-full rounded bg-gray-400 py-2 text-white"
