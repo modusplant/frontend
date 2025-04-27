@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/Button/Button";
 import { Input } from "@/components/Input/Input";
 import { EmailSectionProps } from "@/types/signup";
 import { validateEmail, validateVerificationCode } from "@/utils/Validation";
@@ -76,53 +77,59 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
   };
 
   return (
-    <div className="space-y-2">
-      <label className="block">
-        <Input
-          {...register("email")}
-          type="email"
-          placeholder="이메일을 입력해주세요."
-          onChange={handleEmailChange}
-          disabled={verified}
-        />
-      </label>
-
-      <div className="flex gap-2">
-        <button
-          type="button"
-          className="rounded bg-gray-300 px-4 py-2 text-white"
-          onClick={handleSendCode}
-          disabled={verified || !!emailError}
-        >
-          인증요청
-        </button>
+    <div className="label_button_default flex w-full flex-col gap-4">
+      <div className="flex w-full flex-col gap-[10px]">
+        <label className="paragraph_medium">이메일</label>
+        <div className="flex w-full gap-[15px]">
+          <div className="flex-grow">
+            <Input
+              {...register("email")}
+              type="email"
+              placeholder="이메일을 입력해주세요."
+              onChange={handleEmailChange}
+              disabled={verified}
+            />
+          </div>
+          <Button
+            size="medium"
+            variant={emailError || !email ? "disabled" : "fill"}
+            onClick={handleSendCode}
+            disabled={verified || !!emailError}
+          >
+            인증요청
+          </Button>
+        </div>
       </div>
 
       {sent && (
-        <div className="space-y-1">
-          <Input
-            type="text"
-            placeholder="인증 코드를 입력해주세요."
-            value={code}
-            onChange={handleCodeChange}
-            disabled={verified}
-          />
-          <button
-            type="button"
-            className="w-full rounded bg-gray-400 py-2 text-white"
-            onClick={handleVerifyCode}
-            disabled={!!codeError}
-          >
-            확인
-          </button>
+        <div>
+          <div className="flex w-full gap-[15px]">
+            <div className="flex-grow">
+              <Input
+                type="text"
+                placeholder="인증 코드를 입력해주세요."
+                value={code}
+                onChange={handleCodeChange}
+                disabled={verified}
+              />
+            </div>
+            <Button
+              size="medium"
+              variant={emailError || !codeError ? "disabled" : "fill"}
+              onClick={handleVerifyCode}
+              disabled={!!codeError}
+            >
+              확인
+            </Button>
+          </div>
           {sent && !verified && (
             <p className="text-sm text-gray-500">요청 시간 {formatTime(timeLeft)}</p>
           )}
         </div>
       )}
-      {emailError && <p className="text-sm text-red-500">{emailError}</p>}
-      {codeError && <p className="text-sm text-red-500">{codeError}</p>}
-      {verified && <p className="text-sm text-green-600">✔ 인증이 완료되었습니다.</p>}
+      {emailError && <p className="interaction-error text-sm">{emailError}</p>}
+      {codeError && <p className="interaction-error text-sm">{codeError}</p>}
+      {verified && <p className="interaction-success text-sm">✔ 인증이 완료되었습니다.</p>}
     </div>
   );
 }

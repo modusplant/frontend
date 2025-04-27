@@ -3,9 +3,11 @@
 import AuthEmail from "@/app/(auth)/signup/_components/AuthEmail";
 import AuthPassword from "@/app/(auth)/signup/_components/AuthPassword";
 import TermsAgreement from "@/app/(auth)/signup/_components/TermsAgreement";
+import Button from "@/components/Button/Button";
 import { Input } from "@/components/Input/Input";
 import { FormValues } from "@/types/signup";
 import { validateNickname, validatePassword } from "@/utils/Validation";
+import Image from "next/image";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -44,25 +46,31 @@ function SignupForm() {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 px-6 py-8">
-        <AuthEmail
-          email={email}
-          onEmailChange={setEmail}
-          register={register}
-          onVerifySuccess={() => setIsVerified(true)}
-        />
+      <div className="mx-auto flex h-screen max-w-[535px] flex-col justify-center gap-[60px]">
+        <div className="flex items-center justify-between">
+          <Image src="/img/modus_plant_logo.png" width={233} height={100} alt="모두의식물 로고" />
+          <p className="paragraph_medium text-neutral-600"> 인증이 안되시나요?</p>
+        </div>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <AuthEmail
+            email={email}
+            onEmailChange={setEmail}
+            register={register}
+            onVerifySuccess={() => setIsVerified(true)}
+          />
 
-        <AuthPassword />
-        <TermsAgreement registerAction={register} toggleAllAction={toggleAll} />
+          <AuthPassword />
+          <TermsAgreement registerAction={register} toggleAllAction={toggleAll} />
 
-        <button
-          type="submit"
-          className={`w-full rounded py-3 ${canSubmit ? "bg-black text-white" : "bg-gray-300 text-white"}`}
-          disabled={!canSubmit}
-        >
-          완료
-        </button>
-      </form>
+          <Button
+            type="submit"
+            className={`w-full rounded py-3 ${canSubmit ? "bg-black text-white" : "bg-gray-300 text-white"}`}
+            disabled={!canSubmit}
+          >
+            완료
+          </Button>
+        </form>
+      </div>
     </FormProvider>
   );
 }

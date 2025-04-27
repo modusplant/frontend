@@ -24,11 +24,7 @@ export const Input = ({
   const effectiveType = type === "password" ? (showPassword ? "text" : "password") : type;
 
   return (
-    <div
-      className={cn(
-        "relative mb-[16px] flex flex-col gap-[2px] tablet:mb-[12px] desktop:mb-[10px]",
-      )}
-    >
+    <div className={cn("relative flex w-full flex-col gap-[2px]")}>
       <input
         type={effectiveType}
         className={cn(inputVariants({ status, layout }), className)}
