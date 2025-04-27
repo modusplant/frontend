@@ -1,9 +1,9 @@
 import { VariantProps, cva } from "class-variance-authority";
 
 export const inputVariants = cva(
-  " w-full h-[47px] px-[18px] py-[17px] text-left text-[18px] border-[2px] outline-none transition-all " +
-    "tablet:h-[45px] tablet:px-[18px] tablet:py-[16px] tablet:text-[18px] " +
-    "desktop:h-[44px] desktop:px-[18px] desktop:py-[16px] desktop:text-[16px]",
+  " w-full h-[60px] px-[18px] py-[17px] text-left text-[18px] border-[2px] outline-none transition-all " +
+    "tablet:tablet:px-[18px] tablet:py-[16px] tablet:text-[18px] " +
+    "desktop:desktop:px-[18px] desktop:py-[16px] desktop:text-[16px]",
   {
     variants: {
       status: {
