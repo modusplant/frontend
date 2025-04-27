@@ -8,13 +8,13 @@ import { useFormContext, useWatch } from "react-hook-form";
 function AuthPassword() {
   const { register } = useFormContext<FormValues>();
 
-  const password = useWatch<FormValues>({ name: "password" }) as string;
-  const confirmPassword = useWatch<FormValues>({ name: "confirmPassword" }) as string;
-  const nickname = useWatch<FormValues>({ name: "nickname" }) as string;
+  const password = useWatch<FormValues>({ name: "password" });
+  const confirmPassword = useWatch<FormValues>({ name: "confirmPassword" });
+  const nickname = useWatch<FormValues>({ name: "nickname" });
 
-  const passwordValid = validatePassword(password ?? "");
+  const passwordValid = validatePassword(String(password));
   const passwordsMatch = password === confirmPassword;
-  const nicknameValid = validateNickname(nickname ?? "");
+  const nicknameValid = validateNickname(String(nickname));
 
   return (
     <div className="space-y-3">
