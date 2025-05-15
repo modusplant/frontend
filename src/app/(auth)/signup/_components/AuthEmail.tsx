@@ -12,8 +12,8 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
   const [timeLeft, setTimeLeft] = useState(180);
   const [verified, setVerified] = useState(false);
 
-  const [emailError, setEmailError] = useState("");
-  const [codeError, setCodeError] = useState("");
+  const [emailError, setEmailError] = useState<string | undefined>(undefined);
+  const [codeError, setCodeError] = useState<string | undefined>(undefined);
 
   const handleSendCode = async () => {
     if (!email || emailError) return;
@@ -34,13 +34,13 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
   };
 
   useEffect(() => {
-    if (sent && timeLeft > 0) {
+    if (sent && timeLeft > 0 && !verified) {
       const timer = setInterval(() => {
         setTimeLeft(prev => prev - 1);
       }, 1000);
       return () => clearInterval(timer);
     }
-  }, [sent, timeLeft]);
+  }, [sent, timeLeft, verified]);
 
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
@@ -57,7 +57,7 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
     } else if (!validateEmail(value)) {
       setEmailError("올바른 이메일 형식이 아닙니다.");
     } else {
-      setEmailError("");
+      setEmailError(undefined);
     }
   };
 
@@ -71,38 +71,54 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
       } else if (!validateVerificationCode(value)) {
         setCodeError("6자리 숫자 코드를 입력해주세요.");
       } else {
-        setCodeError("");
+        setCodeError(undefined);
       }
     }
   };
 
+  const bottomMessage = (() => {
+    if (!sent && emailError)
+      return <p className="mt-1 text-sm text-interaction-error">{emailError}</p>;
+    if (codeError) return <p className="mt-1 text-sm text-interaction-error">{codeError}</p>;
+    if (!verified && sent && !code)
+      return <p className="mt-1 text-sm text-gray-500">요청 시간 {formatTime(timeLeft)}</p>;
+    if (verified)
+      return (
+        <p className="mt-1 pl-[14px] text-sm text-interaction-success">인증이 완료되었습니다.</p>
+      );
+    return null;
+  })();
+
+  const emailStatus = emailError ? "error" : verified ? "success" : undefined;
+  const codeStatus = codeError ? "error" : verified ? "success" : undefined;
+
   return (
-    <div className="label_button_default flex w-full flex-col gap-4">
-      <div className="flex w-full flex-col gap-[10px]">
-        <label className="paragraph_medium">이메일</label>
-        <div className="flex w-full gap-[15px]">
-          <div className="flex-grow">
-            <Input
-              {...register("email")}
-              type="email"
-              placeholder="이메일을 입력해주세요."
-              onChange={handleEmailChange}
-              disabled={verified}
-            />
-          </div>
-          <Button
-            size="medium"
-            variant={emailError || !email ? "disabled" : "fill"}
-            onClick={handleSendCode}
-            disabled={verified || !!emailError}
-          >
-            인증요청
-          </Button>
+    <div className="flex w-full flex-col gap-3">
+      <div className="mb-1 flex w-full gap-[15px]">
+        <div className="flex-grow">
+          <Input
+            {...register("email")}
+            label="이메일"
+            type="email"
+            placeholder="이메일을 입력해주세요."
+            onChange={handleEmailChange}
+            disabled={verified}
+            status={emailStatus}
+          />
         </div>
+        <Button
+          size="medium"
+          variant={emailError || !email ? "disabled" : sent ? "outline" : "fill"}
+          onClick={handleSendCode}
+          disabled={verified || !!emailError}
+          className="mt-[32px]"
+        >
+          {sent ? "재요청" : "인증요청"}
+        </Button>
       </div>
 
       {sent && (
-        <div>
+        <div className="flex flex-col gap-[10px]">
           <div className="flex w-full gap-[15px]">
             <div className="flex-grow">
               <Input
@@ -111,25 +127,21 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
                 value={code}
                 onChange={handleCodeChange}
                 disabled={verified}
+                status={codeStatus}
               />
             </div>
             <Button
               size="medium"
-              variant={emailError || !codeError ? "disabled" : "fill"}
+              variant={!codeError && code ? "fill" : "disabled"}
               onClick={handleVerifyCode}
-              disabled={!!codeError}
+              disabled={!!codeError || !code}
             >
               확인
             </Button>
           </div>
-          {sent && !verified && (
-            <p className="text-sm text-gray-500">요청 시간 {formatTime(timeLeft)}</p>
-          )}
         </div>
       )}
-      {emailError && <p className="interaction-error text-sm">{emailError}</p>}
-      {codeError && <p className="interaction-error text-sm">{codeError}</p>}
-      {verified && <p className="interaction-success text-sm">✔ 인증이 완료되었습니다.</p>}
+      <div className="pl-1">{bottomMessage}</div>
     </div>
   );
 }
