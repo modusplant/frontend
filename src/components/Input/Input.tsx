@@ -2,7 +2,7 @@
 
 import { cn } from "@/utils/className";
 import Image from "next/image";
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 
 import { InputVariantsProps, inputVariants, messageVariants } from "./inputVariants";
 
@@ -15,16 +15,10 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   message?: string;
 }
 
-function Input({
-  layout = "full",
-  status,
-  className,
-  type,
-  disabled,
-  label,
-  message,
-  ...props
-}: InputProps) {
+const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  { layout = "full", status, className, type, disabled, label, message, ...props },
+  ref,
+) {
   const [isFocused, setIsFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -43,6 +37,7 @@ function Input({
       )}
       <div className="relative">
         <input
+          ref={ref}
           type={effectiveType}
           className={cn(inputVariants({ status: derivedStatus, layout }), className)}
           disabled={disabled}
@@ -70,6 +65,6 @@ function Input({
       )}
     </div>
   );
-}
+});
 
 export default Input;
