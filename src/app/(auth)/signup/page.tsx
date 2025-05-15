@@ -4,7 +4,6 @@ import AuthEmail from "@/app/(auth)/signup/_components/AuthEmail";
 import AuthPassword from "@/app/(auth)/signup/_components/AuthPassword";
 import TermsAgreement from "@/app/(auth)/signup/_components/TermsAgreement";
 import Button from "@/components/Button/Button";
-import { Input } from "@/components/Input/Input";
 import { FormValues } from "@/types/signup";
 import { validateNickname, validatePassword } from "@/utils/Validation";
 import Image from "next/image";
