@@ -1,48 +1,77 @@
 "use client";
 
 import Button from "@/components/Button/Button";
-import Image from "next/image";
-import { useForm } from "react-hook-form";
+import CheckBox from "@/components/CheckBox/CheckBox";
+import Input from "@/components/Input/Input";
+import { validateEmail, validatePassword } from "@/utils/Validation";
+import { Controller, useForm } from "react-hook-form";
 
 interface FormData {
   email: string;
   password: string;
+  agreeAll: boolean;
 }
 
 function SigninForm() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    mode: "onChange",
+  });
 
   const handleSubmitSignin = (values: FormData) => {
     console.log(values);
   };
 
   return (
-    <form onSubmit={handleSubmit(handleSubmitSignin)} className="flex w-full flex-col gap-5">
-      <div className="mt-10">
-        <input
-          {...register("email")}
-          className="border-netural-200 paragraph_medium w-full rounded-t-[7px] border px-[18px] py-5 outline-none"
-          placeholder="아이디를 입력해주세요."
+    <form onSubmit={handleSubmit(handleSubmitSignin)} className="mt-10 flex w-full flex-col gap-5">
+      <div>
+        <Input
+          {...register("email", {
+            required: "이메일을 입력해주세요.",
+            validate: value => validateEmail(value) || "올바른 이메일 형식이 아닙니다.",
+          })}
+          type="text"
+          layout="noneBottom"
+          placeholder="이메일을 입력해주세요."
+          status={errors.email ? "error" : undefined}
         />
-        <input
+
+        <Input
+          {...register("password", {
+            required: "비밀번호를 입력해주세요.",
+            validate: value =>
+              validatePassword(value) || "영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.",
+          })}
           type="password"
-          {...register("password")}
-          className="border-netural-200 paragraph_medium w-full rounded-b-[7px] border-b border-l border-r px-[18px] py-5 outline-none"
+          layout="noneTop"
           placeholder="비밀번호를 입력해주세요."
+          status={errors.password ? "error" : undefined}
         />
+        {errors.email && (
+          <p className="mt-3 text-sm text-interaction-error">올바른 이메일 형식이 아닙니다.</p>
+        )}
+        {!errors.email && errors.password && (
+          <p className="mt-3 text-sm text-interaction-error">올바른 비밀번호 형식이 아닙니다.</p>
+        )}
       </div>
 
-      <label className="flex cursor-pointer select-none items-center gap-[10px] text-lg font-normal">
-        <input type="checkbox" className="peer hidden" />
-        <div className="relative size-6 rounded-[5px] border-2 border-neutral-500 peer-checked:border-primary-500 peer-checked:bg-primary-500">
-          <Image src="/icons/check.svg" width={20} height={20} alt="체크 아이콘" />
-        </div>
-        아이디 저장
-      </label>
+      <Controller
+        name="agreeAll"
+        control={control}
+        defaultValue={false}
+        render={({ field }) => (
+          <CheckBox
+            checked={field.value}
+            onChange={() => field.onChange(!field.value)}
+            label="아이디 저장"
+            bold
+          />
+        )}
+      />
 
       <div className="flex flex-col gap-[10px]">
         <Button type="submit" variant="fill" className="py-4">

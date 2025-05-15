@@ -10,7 +10,7 @@ export default function LoginPage() {
   return (
     <div className="flex h-screen items-center justify-center">
       <div className="flex h-screen w-screen flex-col items-center justify-center bg-white p-5 drop-shadow-md tablet:h-[672px] tablet:w-[640px] tablet:p-[50px]">
-        <Image src="/images/modus_plant_logo.png" width={233} height={100} alt="모두의식물 로고" />
+        <Image src="/img/modus_plant_logo.png" width={233} height={100} alt="모두의식물 로고" />
 
         <SigninForm />
 
