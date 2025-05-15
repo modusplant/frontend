@@ -41,22 +41,22 @@
 }
 
 .label_button_small {
-  @apply text-sm leading-[27px] tracking-[0.5px];
+  @apply text-base tracking-[0.5px];
 }
 
 .label_field {
-  @apply text-sm font-medium leading-[22px] tracking-[0.5px];
+  @apply text-base font-normal tracking-[0.5px];
 }
 
 /* Others */
 .highlight {
-  @apply text-base font-bold leading-[27px] tracking-[0.5px];
+  @apply text-lg font-medium leading-[27px];
 }
 
 .link {
-  @apply text-base font-medium leading-[27px] tracking-[0.5px] text-accent-100 underline;
+  @apply text-sm font-normal leading-[22px] underline;
 }
 
 .hint {
-  @apply text-sm leading-[22px] tracking-[0.5px] text-neutral-600;
+  @apply text-sm font-normal leading-[22px] tracking-[0.5px];
 }
