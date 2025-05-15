@@ -24,7 +24,6 @@ function SignupForm() {
   const password = watch("password");
   const confirmPassword = watch("confirmPassword");
   const nickname = watch("nickname");
-  const agreeAll = watch("agreeAll");
   const agree1 = watch("agree1");
   const agree2 = watch("agree2");
 
@@ -45,7 +44,7 @@ function SignupForm() {
 
   return (
     <FormProvider {...methods}>
-      <div className="mx-auto my-20 flex max-w-[535px] flex-col justify-center gap-[60px] px-5">
+      <div className="mx-auto flex max-w-[535px] flex-col justify-center gap-[60px] px-5 py-20">
         <div className="flex items-center justify-between">
           <Image src="/img/modus_plant_logo.png" width={233} height={100} alt="모두의식물 로고" />
           <p className="paragraph_medium text-neutral-600"> 인증이 안되시나요?</p>
@@ -61,11 +60,7 @@ function SignupForm() {
           <AuthPassword />
           <TermsAgreement registerAction={register} toggleAllAction={toggleAll} />
 
-          <Button
-            type="submit"
-            className={`w-full rounded py-3 ${canSubmit ? "bg-black text-white" : "bg-gray-300 text-white"}`}
-            disabled={!canSubmit}
-          >
+          <Button type="submit" variant={canSubmit ? "fill" : "disabled"} size="default">
             완료
           </Button>
         </form>

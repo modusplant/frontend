@@ -35,13 +35,13 @@ function Input({
     : (status ?? (isFocused ? "focus" : "regular"));
 
   return (
-    <div className={cn("relative flex w-full flex-col gap-3")}>
+    <div className={cn("flex w-full flex-col gap-3")}>
       {label && (
         <label htmlFor={label} className="label_field -mb-[2px]">
           {label}
         </label>
       )}
-      <div>
+      <div className="relative">
         <input
           type={effectiveType}
           className={cn(inputVariants({ status: derivedStatus, layout }), className)}
@@ -66,9 +66,7 @@ function Input({
         )}
       </div>
       {message && (
-        <p className={cn("mt-[12px] text-sm", messageVariants({ status: derivedStatus }))}>
-          {message}
-        </p>
+        <p className={cn("text-sm", messageVariants({ status: derivedStatus }))}>{message}</p>
       )}
     </div>
   );
