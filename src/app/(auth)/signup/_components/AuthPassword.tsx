@@ -1,6 +1,6 @@
 "use client";
 
-import { Input } from "@/components/Input/Input";
+import Input from "@/components/Input/Input";
 import { FormValues } from "@/types/signup";
 import { validateNickname, validatePassword } from "@/utils/Validation";
 import { useFormContext, useWatch } from "react-hook-form";
