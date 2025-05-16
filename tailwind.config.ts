@@ -8,8 +8,8 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      desktop: "1024px",
-      tablet: "768px",
+      desktop: "1025px",
+      tablet: "799px",
     },
     extend: {
       colors: {
@@ -35,9 +35,9 @@ const config: Config = {
           500: "#141414",
         },
         interaction: {
-          error: "#DD4258",
+          error: "#D63945",
           warning: "#EFBE17",
-          success: "#72C83B",
+          success: "#2CB67A",
         },
         background: "F6F6F6",
         neutral: {
