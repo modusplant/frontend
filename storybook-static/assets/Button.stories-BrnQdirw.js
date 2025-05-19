@@ -25,9 +25,9 @@ const ie = ne(
       defaultVariants: { variant: "fill", size: "default" },
     },
   ),
-  $ = ({ className: ee, variant: p, size: re, ...ae }) => {
-    const te = oe(ee, ie({ variant: p, size: re }));
-    return se.jsx("button", { className: te, disabled: p === "disabled", ...ae });
+  $ = ({ className: ee, variant: p, size: ae, ...re }) => {
+    const te = oe(ee, ie({ variant: p, size: ae }));
+    return se.jsx("button", { className: te, disabled: p === "disabled", ...re });
   };
 $.__docgenInfo = {
   description: "",
@@ -53,17 +53,17 @@ const ue = {
     },
   },
   e = { args: { children: "default button" } },
-  r = { args: { variant: "fill", size: "small", children: "button" } },
-  a = { args: { variant: "fill", size: "medium", children: "button" } },
+  a = { args: { variant: "fill", size: "small", children: "button" } },
+  r = { args: { variant: "fill", size: "default", children: "button" } },
   t = { args: { variant: "fill", size: "large", children: "button" } },
   s = { args: { variant: "outline", size: "small", children: "button" } },
-  n = { args: { variant: "outline", size: "medium", children: "button" } },
+  n = { args: { variant: "outline", size: "default", children: "button" } },
   o = { args: { variant: "outline", size: "large", children: "button" } },
   i = { args: { variant: "ghost", size: "small", children: "button" } },
-  l = { args: { variant: "ghost", size: "medium", children: "button" } },
+  l = { args: { variant: "ghost", size: "default", children: "button" } },
   c = { args: { variant: "ghost", size: "large", children: "button" } },
   d = { args: { variant: "disabled", size: "small", children: "button" } },
-  u = { args: { variant: "disabled", size: "medium", children: "button" } },
+  u = { args: { variant: "disabled", size: "default", children: "button" } },
   m = { args: { variant: "disabled", size: "large", children: "button" } };
 var g, b, h;
 e.parameters = {
@@ -80,11 +80,11 @@ e.parameters = {
     },
   },
 };
-var v, z, f;
-r.parameters = {
-  ...r.parameters,
+var v, f, z;
+a.parameters = {
+  ...a.parameters,
   docs: {
-    ...((v = r.parameters) == null ? void 0 : v.docs),
+    ...((v = a.parameters) == null ? void 0 : v.docs),
     source: {
       originalSource: `{
   args: {
@@ -93,24 +93,24 @@ r.parameters = {
     children: "button"
   }
 }`,
-      ...((f = (z = r.parameters) == null ? void 0 : z.docs) == null ? void 0 : f.source),
+      ...((z = (f = a.parameters) == null ? void 0 : f.docs) == null ? void 0 : z.source),
     },
   },
 };
 var S, x, y;
-a.parameters = {
-  ...a.parameters,
+r.parameters = {
+  ...r.parameters,
   docs: {
-    ...((S = a.parameters) == null ? void 0 : S.docs),
+    ...((S = r.parameters) == null ? void 0 : S.docs),
     source: {
       originalSource: `{
   args: {
     variant: "fill",
-    size: "medium",
+    size: "default",
     children: "button"
   }
 }`,
-      ...((y = (x = a.parameters) == null ? void 0 : x.docs) == null ? void 0 : y.source),
+      ...((y = (x = r.parameters) == null ? void 0 : x.docs) == null ? void 0 : y.source),
     },
   },
 };
@@ -157,7 +157,7 @@ n.parameters = {
       originalSource: `{
   args: {
     variant: "outline",
-    size: "medium",
+    size: "default",
     children: "button"
   }
 }`,
@@ -208,7 +208,7 @@ l.parameters = {
       originalSource: `{
   args: {
     variant: "ghost",
-    size: "medium",
+    size: "default",
     children: "button"
   }
 }`,
@@ -259,7 +259,7 @@ u.parameters = {
       originalSource: `{
   args: {
     variant: "disabled",
-    size: "medium",
+    size: "default",
     children: "button"
   }
 }`,
@@ -305,8 +305,8 @@ export {
   u as DisabledMedium,
   d as DisabledSmall,
   t as FillLarge,
-  a as FillMedium,
-  r as FillSmall,
+  r as FillMedium,
+  a as FillSmall,
   c as GhostLarge,
   l as GhostMedium,
   i as GhostSmall,

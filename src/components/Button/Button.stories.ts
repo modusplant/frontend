@@ -39,7 +39,7 @@ export const FillSmall: StoryObj<ButtonProps> = {
 export const FillMedium: StoryObj<ButtonProps> = {
   args: {
     variant: "fill",
-    size: "medium",
+    size: "default",
     children: "button",
   },
 };
@@ -63,7 +63,7 @@ export const OutlineSmall: StoryObj<ButtonProps> = {
 export const OutlineMedium: StoryObj<ButtonProps> = {
   args: {
     variant: "outline",
-    size: "medium",
+    size: "default",
     children: "button",
   },
 };
@@ -87,7 +87,7 @@ export const GhostSmall: StoryObj<ButtonProps> = {
 export const GhostMedium: StoryObj<ButtonProps> = {
   args: {
     variant: "ghost",
-    size: "medium",
+    size: "default",
     children: "button",
   },
 };
@@ -111,7 +111,7 @@ export const DisabledSmall: StoryObj<ButtonProps> = {
 export const DisabledMedium: StoryObj<ButtonProps> = {
   args: {
     variant: "disabled",
-    size: "medium",
+    size: "default",
     children: "button",
   },
 };
