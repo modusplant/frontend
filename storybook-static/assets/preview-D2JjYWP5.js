@@ -1,12 +1,12 @@
-import { _ as a } from "./iframe-BwIZxnaO.js";
+import { _ as a } from "./iframe-C0ExETMy.js";
 
 const __vite__mapDeps = (
   i,
   m = __vite__mapDeps,
   d = m.f ||
     (m.f = [
-      "./DocsRenderer-CFRXHY34-BdJoda10.js",
-      "./iframe-BwIZxnaO.js",
+      "./DocsRenderer-CFRXHY34-DdT9yb16.js",
+      "./iframe-C0ExETMy.js",
       "./index-DWtqY3O_.js",
       "./jsx-runtime-DoEZbXM1.js",
       "./jsx-runtime-Bw5QeaCk.js",
@@ -30,7 +30,7 @@ var p = Object.entries(globalThis.TAGS_OPTIONS ?? {}).reduce((e, r) => {
     docs: {
       renderer: async () => {
         let { DocsRenderer: e } = await a(
-          () => import("./DocsRenderer-CFRXHY34-BdJoda10.js").then(r => r.D),
+          () => import("./DocsRenderer-CFRXHY34-DdT9yb16.js").then(r => r.D),
           __vite__mapDeps([0, 1, 2, 3, 4, 5, 6, 7, 8]),
           import.meta.url,
         );
