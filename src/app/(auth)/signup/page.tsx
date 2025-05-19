@@ -60,7 +60,7 @@ function SignupForm() {
           <AuthPassword />
           <TermsAgreement registerAction={register} toggleAllAction={toggleAll} />
 
-          <Button type="submit" variant={canSubmit ? "fill" : "disabled"} size="default">
+          <Button type="submit" variant={canSubmit ? "fill" : "disabled"} size="large">
             완료
           </Button>
         </form>

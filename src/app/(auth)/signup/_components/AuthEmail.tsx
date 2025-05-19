@@ -107,7 +107,7 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
           />
         </div>
         <Button
-          size="medium"
+          size="small"
           variant={emailError || !email ? "disabled" : sent ? "outline" : "fill"}
           onClick={handleSendCode}
           disabled={verified || !!emailError}
@@ -131,7 +131,7 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
               />
             </div>
             <Button
-              size="medium"
+              size="small"
               variant={!codeError && code ? "fill" : "disabled"}
               onClick={handleVerifyCode}
               disabled={!!codeError || !code}

@@ -1,7 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority";
 
 export const inputVariants = cva(
-  "w-full h-[60px] px-[10px] py-[18px] text-[16px] border-[1px] rounded-[7px] text-left outline-none transition-all ",
+  "w-full h-[60px] px-[10px] py-[18px] text-[16px] border rounded-[7px] text-left outline-none transition-all",
   {
     variants: {
       status: {
@@ -15,7 +15,7 @@ export const inputVariants = cva(
       layout: {
         full: "rounded-[7px]",
         noneTop: "rounded-b-[7px] rounded-t-none",
-        noneBottom: "rounded-t-[7px] rounded-b-none",
+        noneBottom: "border border-b-0 rounded-t-[7px] rounded-b-none",
       },
     },
     defaultVariants: {
