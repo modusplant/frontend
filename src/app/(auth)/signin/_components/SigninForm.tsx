@@ -72,13 +72,12 @@ function SigninForm() {
           />
         )}
       />
-
       <div className="flex flex-col gap-[10px]">
-        <Button type="submit" variant="fill" className="py-4">
-          <span className="heading4">로그인</span>
+        <Button type="submit" size="large" variant="fill">
+          로그인
         </Button>
-        <Button type="button" variant="outline" className="py-4">
-          <span className="heading4">회원가입</span>
+        <Button type="button" size="large" variant="outline">
+          회원가입
         </Button>
       </div>
     </form>
