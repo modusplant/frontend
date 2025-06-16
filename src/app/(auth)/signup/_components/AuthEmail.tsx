@@ -62,14 +62,13 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
   };
 
   const handleCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    if (/^\d*$/.test(value) && value.length <= 6) {
+    const value = e.target.value.toUpperCase();
+
+    if (/^[A-Z0-9]*$/.test(value) && value.length <= 6) {
       setCode(value);
 
-      if (!value) {
-        setCodeError("인증 코드를 입력해주세요.");
-      } else if (!validateVerificationCode(value)) {
-        setCodeError("6자리 숫자 코드를 입력해주세요.");
+      if (!value || !validateVerificationCode(value)) {
+        setCodeError("6자리 영문+숫자 코드를 입력해주세요.");
       } else {
         setCodeError(undefined);
       }
@@ -108,7 +107,9 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
         </div>
         <Button
           size="small"
-          variant={emailError || !email ? "disabled" : sent ? "outline" : "fill"}
+          variant={
+            verified ? "disabled" : emailError || !email ? "disabled" : sent ? "outline" : "fill"
+          }
           onClick={handleSendCode}
           disabled={verified || !!emailError}
           className="mt-[32px]"
@@ -132,9 +133,9 @@ function AuthEmail({ email, onEmailChange, register, onVerifySuccess }: EmailSec
             </div>
             <Button
               size="small"
-              variant={!codeError && code ? "fill" : "disabled"}
+              variant={!codeError && code && !verified ? "fill" : "disabled"}
               onClick={handleVerifyCode}
-              disabled={!!codeError || !code}
+              disabled={!!codeError || !code || verified}
             >
               확인
             </Button>

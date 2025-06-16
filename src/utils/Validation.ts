@@ -18,6 +18,7 @@ export const validateNickname = (nickname: string): boolean => {
 
 // 4. 인증코드 유효성 검사 (6자리 숫자)
 export const validateVerificationCode = (code: string): boolean => {
-  const regex = /^\d{6}$/;
-  return regex.test(code);
+  const upperCode = code.toUpperCase();
+  const regex = /^[A-Z0-9]{6}$/;
+  return regex.test(upperCode);
 };
