@@ -9,7 +9,7 @@ export const buttonStyles = cva(
         outline:
           "bg-white border-2 border-primary-500 text-primary-500 hover:border-primary-300 active:border-accent-200 active:text-accent-200",
         ghost: "bg-neutral-400/40 text-primary-400 hover:bg-neutral-400/70 active:text-accent-200",
-        disabled: "bg-neutral-500 text-neutral-700 cursor-not-allowed",
+        disabled: "bg-neutral-400 text-white cursor-not-allowed",
       },
       size: {
         default: "w-[120px] px-[14px] label_button_default",

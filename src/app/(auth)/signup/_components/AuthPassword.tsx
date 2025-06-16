@@ -9,7 +9,6 @@ function AuthPassword() {
   const { register } = useFormContext<FormValues>();
 
   const password = useWatch<FormValues>({ name: "password" });
-  const confirmPassword = useWatch<FormValues>({ name: "confirmPassword" });
   const nickname = useWatch<FormValues>({ name: "nickname" });
 
   return (
@@ -24,21 +23,6 @@ function AuthPassword() {
           message={
             password && !validatePassword(String(password))
               ? "비밀번호는 8자 이상, 영어+숫자+특수문자를 포함해야 합니다."
-              : undefined
-          }
-        />
-        <Input
-          {...register("confirmPassword")}
-          type="password"
-          placeholder="비밀번호를 한번 더 입력해주세요."
-          status={
-            confirmPassword && (!validatePassword(String(password)) || confirmPassword !== password)
-              ? "error"
-              : undefined
-          }
-          message={
-            confirmPassword && confirmPassword !== password
-              ? "비밀번호가 서로 일치하지 않습니다."
               : undefined
           }
         />
