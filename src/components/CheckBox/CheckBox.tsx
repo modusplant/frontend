@@ -27,7 +27,7 @@ export default function CheckBox({ checked, onChange, label, bold }: CheckBoxPro
           </svg>
         )}
       </div>
-      <span className={`${bold ? "font-bold text-neutral-900" : "text-neutral-600"}`}>{label}</span>
+      <span className={`${bold ? "font-bold text-neutral-900" : "text-neutral-700"}`}>{label}</span>
     </label>
   );
 }

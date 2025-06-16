@@ -2,6 +2,7 @@
 
 import CheckBox from "@/components/CheckBox/CheckBox";
 import { TermsAgreementProps } from "@/types/signup";
+import Image from "next/image";
 import { Controller, useFormContext } from "react-hook-form";
 
 interface SingleCheckProps {
@@ -24,7 +25,7 @@ function AgreementCheckItem({ name, label }: SingleCheckProps) {
           />
         )}
       />
-      <span className="text-gray-600">{">"}</span>
+      <Image src="/icons/arrow_right.svg" width={16} height={16} alt="arrow right" />
     </div>
   );
 }
@@ -50,7 +51,7 @@ export default function TermsAgreement({ toggleAllAction }: TermsAgreementProps)
         )}
       />
 
-      <hr />
+      <hr className="bg-neutral-300" />
 
       <div className="flex flex-col gap-4 pt-[5px]">
         <AgreementCheckItem name="agree1" label="[필수] 이용약관을 확인했으며, 동의합니다." />
