@@ -9,9 +9,9 @@ export interface ButtonProps
 }
 
 const Button = ({ className, variant, size, ...props }: ButtonProps) => {
-  const buttonClass = cn(className, buttonStyles({ variant: variant, size: size }));
+  const buttonClass = cn(buttonStyles({ variant: variant, size: size }), className);
 
-  return <button className={buttonClass} disabled={variant === "disabled"} {...props} />;
+  return <button disabled={variant === "disabled"} {...props} className={buttonClass} />;
 };
 
 export default Button;
