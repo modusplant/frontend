@@ -28,7 +28,7 @@ export default function Header() {
 
   return (
     <header
-      className="absolute z-10 -ml-5 flex h-[100px] w-full items-center justify-between px-[100px] text-white transition-colors duration-300 hover:bg-white hover:text-[#333333] active:bg-white"
+      className="absolute z-10 flex h-[100px] w-full items-center justify-between px-[100px] text-white transition-colors duration-300 hover:bg-white hover:text-[#333333] active:bg-white"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
